@@ -9,6 +9,9 @@
   },
   "cookies": {
     "enabled": true,
+    "cookieMaxAge": {
+      "value": "$DEFAULT(${cookieMaxAge}, $CALC(86400, 365, multiply, true))"
+    },
     "_sp_duid": {
       "value": "$IF($SUBSTR(QUERY_PARAM(_sp),0,36), $SUBSTR(QUERY_PARAM(_sp),0,36), $IF(LINKER_PARAM(sp_amp_linker,_sp_duid), LINKER_PARAM(sp_amp_linker,_sp_duid), COOKIE(_sp_duid)))"
     },
@@ -17,7 +20,7 @@
     }
   },
   "vars": {
-    "trackerVersion": "amp-1.0.3",
+    "trackerVersion": "amp-1.0.4",
     "ampVistorId": "CLIENT_ID(_sp_ampid)",
     "duid": "$IF($SUBSTR(QUERY_PARAM(_sp),0,36), $SUBSTR(QUERY_PARAM(_sp),0,36), $IF(LINKER_PARAM(sp_amp_linker,_sp_duid), LINKER_PARAM(sp_amp_linker,_sp_duid), COOKIE(_sp_duid)))",
     "nullString": "null",
